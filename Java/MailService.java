@@ -27,6 +27,10 @@ import org.springframework.stereotype.Service;
  * compile ('org.springframework.boot:spring-boot-starter-mail') 를 추가하여야 합니다.
  * 본 메일기능의 경우 SMTP를 기반으로 기능을 수행 합니다.
  * 또한 properties 파일에 다음과 같이 정의하도록 합니다. 아래는 지메일 예시입니다.
+ * 이메일을 상업적으로 원활하게 이용하기 위해서는 필수적으로 화이트도메인을 실시하여야 스팸으로 막히지 않으며
+ * 송신하는 도메인 사의 정책에 따라 스팸으로 막히는 경우도 있습니다..
+ * 이에 따라 송신하는 도메인과 제휴하거나, 그 정책에 위반하지 않도록 사용하여야 합니다.
+ * 또한, 수신자 역할을하는 도메인에서 외부에서 수신자 계정이 외부에서 smtp을 사용할수있도록 허용해주어야 합니다. 
 
 # Mail Setting
 spring.mail.host=smtp.gmail.com
