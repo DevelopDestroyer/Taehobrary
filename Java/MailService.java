@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 
 
 /* ------------------------------------------
- * Deverloper : Tae-ho Lee
+ * Developer : Tae-ho Lee
  * E-mail : developdestroyer@gmail.com
  * Date : 2018-07-24
 ------------------------------------------- */
