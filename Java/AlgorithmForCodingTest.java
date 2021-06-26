@@ -1,3 +1,14 @@
+
+/*
+  문제명 : 미로 탐색
+  유형 : BFS
+  난이도 : ★★★
+  날짜 : 21/06/26
+  링크 : https://www.acmicpc.net/problem/2178
+  해설 : https://youngest-programming.tistory.com/195
+*/
+
+
 /*
   문제명 : 타겟 넘버
   유형 : DFS
