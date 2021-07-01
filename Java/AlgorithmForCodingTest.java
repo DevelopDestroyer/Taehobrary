@@ -1,9 +1,45 @@
+/*
+  문제명 : BinaryGap
+  유형 : 이진법 및 문자열
+  난이도 : ★
+  날짜 : 21/07/01
+  링크 : codility Lesson 1
+  해설 : -
+*/
+class Solution {
+    public int solution(int N) {
+        int flag = 0;
+        int count = 0;
+        int max = 0;
+        String binaryString = Integer.toBinaryString(N);
+        String[] strArray = binaryString.split("");
+
+        for(String s : strArray) {
+            if(s.equals("0") && flag == 0){
+                flag = 1;
+                count++;
+            }
+            else if (s.equals("0") && flag == 1){
+                count++;
+            }
+            else{
+                flag = 0;
+                if(max < count){
+                    max = count;
+                }
+                count = 0;
+            }
+        }
+        return max;
+    }
+}
+
 
 /*
   문제명 : 미로 탐색
   유형 : BFS
   난이도 : ★★★
-  날짜 : 21/06/26
+  날짜 : 21/07/01
   링크 : https://www.acmicpc.net/problem/2178
   해설 : https://youngest-programming.tistory.com/195
 */
