@@ -7,7 +7,67 @@
   링크 : https://www.acmicpc.net/problem/2178
   해설 : https://youngest-programming.tistory.com/195
 */
+import java.util.*;
 
+public class Main{
+    
+    private static int[][] map;
+    private static boolean[][] visited;
+    private static int[] dx = {-1, 0, 1, 0};
+    private static int[] dy = {0, -1, 0, 1};
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt(); //행
+        int M = sc.nextInt(); //열
+        
+        map = new int[M + 2][N + 2]; //BFS 시작점을 0, 0이 아닌 1, 1과 같은 형태로 사용하기 위해, 그리고 상,하,좌,우 탐색을 하는 방식이므로 여백(?)이 있어야 배열인덱스 초과 오류 없이 탐색이 가능하다
+        visited = new boolean[M + 2][N + 2];
+        
+        sc.nextLine();
+        for(int i = 1; i < N + 1; i++){
+            String str = sc.nextLine();
+            for(int j = 1; j < M + 1; j++){
+                map[j][i] = str.charAt(j - 1) - '0';
+            }
+        }
+        
+        bfs(1,1);
+        System.out.println(map[M][N]);
+    }
+    
+    private static void bfs(int x, int y){
+        Queue<Point> queue = new LinkedList<Point>();
+        queue.offer(new Point(x, y)); //최초 시작지점 큐 삽입
+        visited[x][y] = true; //최초 시작지점 방문처리
+        
+        while (!queue.isEmpty()){ //큐가 비어질때까지
+            Point point = queue.poll(); //큐에서 하나를 뺀다
+            for(int i = 0; i < 4; i++){
+                int x2 = point.x + dx[i];
+                int y2 = point.y + dy[i];
+                
+                if (!(map[x2][y2] == 0 || visited[x2][y2] == true)){//탐색가능 조건
+                    visited[x2][y2] = true;
+                    queue.offer(new Point(x2, y2));
+                    //이전 좌표 값의 + 1을 가진다.
+                    map[x2][y2] = map[point.x][point.y] + 1; //좌
+                }
+            }
+        }
+    }
+    
+    static class Point {
+        int x;
+        int y;
+        
+        //생성자
+        Point(int x, int y){
+            this.x = x;
+            this.y = y;
+        }
+    }
+}
 
 /*
   문제명 : 타겟 넘버
