@@ -3,7 +3,7 @@
   유형 : 배열
   난이도 : ★
   날짜 : 21/07/01
-  링크 : codility Lesson 2
+  링크 : codility Lesson 2 (https://app.codility.com/programmers/lessons/2-arrays/)
   해설 : -
 */
 class Solution {
