@@ -1,4 +1,29 @@
 /*
+  문제명 : CyclicRotation
+  유형 : 배열
+  난이도 : ★
+  날짜 : 21/07/01
+  링크 : codility Lesson 2
+  해설 : -
+*/
+class Solution {
+    public int[] solution(int[] A, int K) {
+        // write your code in Java SE 8
+        int[] res = A;
+        int tmp = 0;
+        int len = A.length;
+        for(int i = 0; i < K; i++) {
+            tmp = res[len - 1];
+            for(int j = len-1; j > 0; j--){
+                res[j] = res[j-1];
+            }
+            res[0] = tmp;
+        }
+        return res;
+    }
+}
+
+/*
   문제명 : BinaryGap
   유형 : 이진법 및 문자열
   난이도 : ★
