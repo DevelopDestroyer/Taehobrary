@@ -1,4 +1,35 @@
 /*
+  문제명 : First Unique Character in a String
+  유형 : 문자열
+  난이도 : ★
+  날짜 : 21/07/03
+  링크 : https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/881/
+  해설 : -
+*/
+class Solution {
+    public int firstUniqChar(String s) {
+        int nonRepeatIndex = -1;
+        int flag = 0;
+        for(int i=0;i<s.length();i++){
+            s.charAt(i);
+            for(int j = 0; j < s.length(); j++){
+                if(i != j && s.charAt(i) == s.charAt(j)){
+                    flag = 1;
+                    break;
+                }
+            }
+            if(flag == 0){
+                nonRepeatIndex = i;
+                break;
+            }
+            flag = 0;
+        }
+        return nonRepeatIndex;
+    }
+}
+
+
+/*
   문제명 : CyclicRotation
   유형 : 배열
   난이도 : ★
