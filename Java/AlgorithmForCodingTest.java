@@ -1,3 +1,43 @@
+
+/*
+  문제명 : Implement strStr()
+  유형 : 문자열
+  난이도 : ★★★
+  날짜 : 21/07/03
+  링크 : https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/885/
+  피드백 : 시간초과
+*/
+class Solution {
+    public int strStr(String haystack, String needle) {
+        int idx = -1;
+        if("".equals(needle)){
+            return 0;
+        }
+        if(haystack.length() < needle.length()){
+            return -1;
+        }
+        
+        for(int i = 0; i < haystack.length(); i++){      
+            for(int j = 0; j < needle.length(); j++){
+                if(i + j >= haystack.length()){
+                    idx = -1;
+                }
+                else if(haystack.charAt(i + j) == needle.charAt(j)){
+                    idx = i;
+                }
+                else{
+                    idx = -1;
+                    break;
+                }
+            }
+            if(idx != -1){
+                break;
+            }
+        }
+        return idx;
+    }
+}
+
 /*
   문제명 : Valid Palindrome
   유형 : 문자열
