@@ -1,5 +1,60 @@
 
 /*
+  문제명 : Add Two Numbers
+  유형 : 문자열
+  난이도 : ★★★★
+  날짜 : 21/07/04
+  링크 : https://leetcode.com/explore/interview/card/top-interview-questions-medium/107/linked-list/783/
+  해설 : https://velog.io/@yeoj1n/Leetcode-2.Add-Two-Numbers-Java
+*/
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+		ListNode answer = new ListNode();
+		ListNode node = answer;
+		
+		int carry = 0;
+        int sum = carry;
+        while(l1 != null || l2 != null){
+            sum = carry;
+            if(l1 != null){
+                sum += l1.val;
+                l1 = l1.next;
+            }
+            if(l2 != null){
+                sum += l2.val;
+                l2 = l2.next;
+            }
+            carry = sum / 10;
+            sum %= 10;
+
+            ListNode temp = new ListNode(sum);
+            node.next = temp;
+            node = node.next;            
+        }
+        if(carry > 0){
+            ListNode temp2 = new ListNode(carry);
+            node.next = temp2;
+            node = node.next;
+
+        }
+    
+    return answer.next;
+    }
+
+}
+
+/*
   문제명 : Implement strStr()
   유형 : 문자열
   난이도 : ★★★
