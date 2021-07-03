@@ -1,4 +1,34 @@
 /*
+  문제명 : Valid Palindrome
+  유형 : 문자열
+  난이도 : ★★★
+  날짜 : 21/07/03
+  링크 : https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/883/
+  해설 : -
+*/
+class Solution {
+    public boolean isPalindrome(String s) {
+        String results = s.replaceAll("[^0-9a-zA-Z]", ""); //숫자, 알파벳만 남기고 제거
+        results = results.toLowerCase();
+        
+        return isPalin(results);
+    }
+
+    private static boolean isPalin(String input) {
+        int len = input.length();
+
+        for (int i=0; i<len; i++) {
+            if (input.charAt(i) != input.charAt(len-i-1)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+
+
+/*
   문제명 : First Unique Character in a String
   유형 : 문자열
   난이도 : ★
