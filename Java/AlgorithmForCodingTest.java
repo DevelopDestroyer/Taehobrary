@@ -1,3 +1,29 @@
+/*
+  문제명 : Distinct
+  유형 : 정렬
+  난이도 : ★
+  날짜 : 21/07/04
+  링크 : codility
+*/
+import java.util.*;
+
+// you can write to stdout for debugging purposes, e.g.
+// System.out.println("this is a debug message");
+
+class Solution {
+    public int solution(int[] A) {
+        int[] B = A;
+        int count = 0;
+        Arrays.sort(B);
+        
+        for(int i = 0; i < B.length; i++){
+            if(i == 0 || B[i] != B[i-1]){
+                count++;
+            }
+        }
+        return count;
+    }
+}
 
 /*
   문제명 : Add Two Numbers
